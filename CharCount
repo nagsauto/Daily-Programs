@@ -1,0 +1,32 @@
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+public class Charcount {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		charCount("aabbf");
+
+	}
+	public static  void charCount(String arry) {
+		char [] charArray=arry.toCharArray();
+		
+		HashMap<Character,Integer> charCountMap =new HashMap<Character,Integer>();
+		for(int i=0;i<charArray.length;i++) {
+			
+					if(charCountMap.containsKey(charArray[i])) {
+						int k=charCountMap.get(charArray[i]);
+						charCountMap.put(charArray[i],++k);
+						
+					}
+					else {
+						charCountMap.put(charArray[i], 1);
+					}
+				}
+		for (Entry<Character, Integer> entry : charCountMap.entrySet()) {
+		    System.err.print(entry.getKey() +""+ entry.getValue());
+		}
+
+			
+		}
+	}
