@@ -1,0 +1,27 @@
+public class LongestSortedNumberCount {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] num = { 1, 3, 6, 6, 2, 0, 1, 3, 6, 7, 9, 11, 2 };
+		System.out.println(new LongestSortedNumberCount().longSort(num));
+	}
+
+	public int longSort(int[] num) {
+		int maxcount = 0;
+		int count = 0;
+		for (int i = 1; i < num.length; i++) {
+			if (num[i - 1] <= num[i]) {
+				count++;
+			} else {
+				if (maxcount <= count) {
+					maxcount = count;
+					count = 0;
+				}
+
+			}
+		}
+
+		return count > maxcount ? count : maxcount;
+
+	}
+}
